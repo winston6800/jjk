@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jujutsu Kaisen - Colored Manga Reader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Landing Page -->
+        <div class="landing-page" id="landingPage">
+            <header class="landing-header">
+                <div class="header-content">
+                    <h1 class="title">Jujutsu Kaisen</h1>
+                    <p class="subtitle">Colored Manga Reader</p>
+                </div>
+            </header>
+
+            <main class="landing-main">
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="chapterSearch" placeholder="Search chapters..." autocomplete="off">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+
+                <div class="chapters-section">
+                    <h2>Available Chapters</h2>
+                    <div class="chapters-grid" id="landingChaptersGrid">
+                        <!-- Chapters will be loaded here -->
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Reader View -->
+        <div class="reader-view" id="readerView" style="display: none;">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button id="menuBtn" class="menu-btn" title="Menu">
+                        <span class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                    <div class="manga-title">
+                        <span class="title">Jujutsu Kaisen</span>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="chapter-nav">
+                        <span class="volume">Vol. 1</span>
+                        <span class="chapter">Ch. 1</span>
+                    </div>
+                    <div class="page-nav">
+                        <span class="current-page">1</span>
+                        <span class="page-separator">/</span>
+                        <span class="total-pages">58</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <button id="homeBtn" class="nav-btn" title="Home">
+                        <span class="icon">🏠</span>
+                        Home
+                    </button>
+                    <button id="prevChapterBtn" class="nav-btn" disabled title="Previous Chapter">
+                        <span class="icon">←</span>
+                    </button>
+                    <button id="nextChapterBtn" class="nav-btn" title="Next Chapter">
+                        <span class="icon">→</span>
+                    </button>
+                    <div class="reading-mode">
+                        <select id="readingModeDropdown" class="mode-dropdown">
+                            <option value="single">Short Form</option>
+                            <option value="singlePage">Single Page</option>
+                            <option value="longStrip">Long Form</option>
+                        </select>
+                    </div>
+                    <button id="fullscreenBtn" class="control-btn" title="Toggle Fullscreen">
+                        <span class="icon">⛶</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Main Reader -->
+            <main class="reader-container">
+                <div class="reader-viewport" id="readerViewport">
+                    <div class="page-container" id="pageContainer">
+                        <!-- Manga pages will be loaded here -->
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Smooth Menu Panel -->
+        <div class="menu-panel" id="menuPanel">
+            <div class="menu-header">
+                <h3>Navigation</h3>
+                <button id="closeMenu" class="close-btn">&times;</button>
+            </div>
+            <div class="menu-content">
+                <div class="menu-section">
+                    <h4>Chapters</h4>
+                    <div class="chapter-list" id="menuChapterList">
+                        <!-- Chapters will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h4>Settings</h4>
+                    <div class="setting-group">
+                        <label for="autoFit">Auto-fit to screen</label>
+                        <input type="checkbox" id="autoFit" checked>
+                    </div>
+                    <div class="setting-group">
+                        <label for="pageGap">Page gap (px)</label>
+                        <input type="range" id="pageGap" min="0" max="20" value="10">
+                        <span id="gapValue">10px</span>
+                    </div>
+                    <div class="setting-group">
+                        <label for="backgroundColor">Background color</label>
+                        <input type="color" id="backgroundColor" value="#1a1a1a">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+            <p>Loading chapter...</p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
