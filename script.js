@@ -179,6 +179,9 @@ class MangaReader {
             this.currentChapter = chapter;
             this.currentPage = 1;
             
+            // Update SEO meta tags for this chapter
+            this.updateSEO(chapter);
+            
             // Update UI
             this.updateHeaderInfo(chapter);
             this.updateMenuChapterSelection(chapterId);
@@ -669,6 +672,75 @@ class MangaReader {
         `;
         
         document.body.appendChild(progressBar);
+    }
+    
+    // SEO Optimization Methods
+    updateSEO(chapter) {
+        const chapterNumber = chapter.id.replace('chapter', '');
+        const title = `Jujutsu Kaisen Chapter ${chapterNumber} Colored – Read Online Free`;
+        const description = `${chapter.description} – Read Chapter ${chapterNumber} of Jujutsu Kaisen manga in full color HD.`;
+        
+        // Update document title
+        document.title = title;
+        
+        // Update meta description
+        this.updateMetaTag('description', description);
+        
+        // Update Open Graph tags
+        this.updateMetaTag('og:title', title, 'property');
+        this.updateMetaTag('og:description', description, 'property');
+        
+        // Update Twitter tags
+        this.updateMetaTag('twitter:title', title);
+        this.updateMetaTag('twitter:description', description);
+        
+        // Update JSON-LD schema for this chapter
+        this.updateSchema(chapter);
+    }
+    
+    updateMetaTag(name, content, attribute = 'name') {
+        let metaTag = document.querySelector(`meta[${attribute}="${name}"]`);
+        if (!metaTag) {
+            metaTag = document.createElement('meta');
+            metaTag.setAttribute(attribute, name);
+            document.head.appendChild(metaTag);
+        }
+        metaTag.setAttribute('content', content);
+    }
+    
+    updateSchema(chapter) {
+        const chapterNumber = chapter.id.replace('chapter', '');
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "Book",
+            "name": `Jujutsu Kaisen Chapter ${chapterNumber} Colored`,
+            "url": `https://github.com/winston6800/jjk#chapter${chapterNumber}`,
+            "author": {
+                "@type": "Person",
+                "name": "Gege Akutami"
+            },
+            "genre": "Manga",
+            "inLanguage": "en",
+            "description": chapter.description,
+            "isPartOf": {
+                "@type": "BookSeries",
+                "name": "Jujutsu Kaisen Colored"
+            },
+            "numberOfPages": chapter.pageCount,
+            "datePublished": chapter.releaseDate
+        };
+        
+        // Remove existing schema
+        const existingSchema = document.querySelector('script[type="application/ld+json"]');
+        if (existingSchema) {
+            existingSchema.remove();
+        }
+        
+        // Add new schema
+        const schemaScript = document.createElement('script');
+        schemaScript.type = 'application/ld+json';
+        schemaScript.textContent = JSON.stringify(schema);
+        document.head.appendChild(schemaScript);
     }
 }
 
