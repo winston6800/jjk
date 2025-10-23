@@ -149,7 +149,7 @@ const MANGA_CONFIG = {
     
     // Reading settings
     defaultSettings: {
-        readingMode: "single", // "single", "double", "longStrip"
+        readingMode: "singlePage", // Default to single page mode
         autoFit: true,
         pageGap: 10,
         backgroundColor: "#1a1a1a",

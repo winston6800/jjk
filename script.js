@@ -4,7 +4,7 @@ class MangaReader {
         this.currentChapter = null;
         this.currentPage = 1;
         this.currentPanel = 0; // For single page mode panel navigation
-        this.readingMode = 'single';
+        this.readingMode = 'singlePage';
         this.settings = { ...MANGA_CONFIG.defaultSettings };
         this.isLoading = false;
         this.currentView = 'landing'; // 'landing' or 'reader'
@@ -36,7 +36,6 @@ class MangaReader {
         this.homeBtn = document.getElementById('homeBtn');
         this.prevChapterBtn = document.getElementById('prevChapterBtn');
         this.nextChapterBtn = document.getElementById('nextChapterBtn');
-        this.readingModeDropdown = document.getElementById('readingModeDropdown');
         this.fullscreenBtn = document.getElementById('fullscreenBtn');
         this.menuChapterList = document.getElementById('menuChapterList');
         
@@ -61,7 +60,6 @@ class MangaReader {
         this.homeBtn.addEventListener('click', () => this.showLandingPage());
         this.prevChapterBtn.addEventListener('click', () => this.previousChapter());
         this.nextChapterBtn.addEventListener('click', () => this.nextChapter());
-        this.readingModeDropdown.addEventListener('change', (e) => this.setReadingMode(e.target.value));
         
         // UI controls
         this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
@@ -492,30 +490,6 @@ class MangaReader {
             case 'H':
                 e.preventDefault();
                 this.showLandingPage();
-                break;
-            case '1':
-                e.preventDefault();
-                if (this.currentView === 'reader') {
-                    this.setReadingMode('single');
-                }
-                break;
-            case '2':
-                e.preventDefault();
-                if (this.currentView === 'reader') {
-                    this.setReadingMode('double');
-                }
-                break;
-            case '3':
-                e.preventDefault();
-                if (this.currentView === 'reader') {
-                    this.setReadingMode('longStrip');
-                }
-                break;
-            case '4':
-                e.preventDefault();
-                if (this.currentView === 'reader') {
-                    this.setReadingMode('singlePage');
-                }
                 break;
             case 'Escape':
                 this.closeMenu();
