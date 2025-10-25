@@ -57,7 +57,6 @@ class MangaReader {
         // Chapter highlights
         const firstChapterBtn = document.querySelector('.first-chapter');
         const newChapterBtn = document.querySelector('.new-chapter');
-        const expandBtn = document.getElementById('expandChapters');
         
         if (firstChapterBtn) {
             firstChapterBtn.addEventListener('click', () => {
@@ -73,10 +72,6 @@ class MangaReader {
                 this.showReaderView();
                 this.loadChapter(latestChapter.id);
             });
-        }
-        
-        if (expandBtn) {
-            expandBtn.addEventListener('click', () => this.toggleChapterList());
         }
         
         // Menu events
@@ -163,28 +158,14 @@ class MangaReader {
         
         items.forEach(item => {
             const title = item.querySelector('h5').textContent.toLowerCase();
-            const description = item.querySelector('p').textContent.toLowerCase();
             const searchLower = searchTerm.toLowerCase();
             
-            if (title.includes(searchLower) || description.includes(searchLower)) {
+            if (title.includes(searchLower)) {
                 item.style.display = 'block';
             } else {
                 item.style.display = 'none';
             }
         });
-    }
-    
-    toggleChapterList() {
-        const chapterList = this.landingChaptersGrid;
-        const expandBtn = document.getElementById('expandChapters');
-        
-        if (chapterList.style.maxHeight === '400px' || !chapterList.style.maxHeight) {
-            chapterList.style.maxHeight = 'none';
-            expandBtn.textContent = '−';
-        } else {
-            chapterList.style.maxHeight = '400px';
-            expandBtn.textContent = '+';
-        }
     }
     
     showLandingPage() {

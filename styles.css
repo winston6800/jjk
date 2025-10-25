@@ -160,9 +160,6 @@ body {
 }
 
 .chapters-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 1.5rem;
 }
 
@@ -175,23 +172,6 @@ body {
     background-clip: text;
 }
 
-.expand-btn {
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-    color: #ffffff;
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
-}
-
-.expand-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
-}
 
 .search-container {
     margin-bottom: 1.5rem;
