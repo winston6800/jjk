@@ -303,7 +303,7 @@ body {
 .chapter-item {
     background: linear-gradient(135deg, #333 0%, #444 100%);
     border-radius: 12px;
-    padding: 1.25rem;
+    padding: 1.5rem 1.25rem;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
@@ -340,7 +340,8 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    text-align: center;
+    text-align: left;
+    padding-left: 0.5rem;
 }
 
 .chapter-item p {
@@ -348,13 +349,15 @@ body {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
     line-height: 1.5;
-    text-align: center;
+    text-align: left;
+    padding-left: 0.5rem;
 }
 
 .chapter-item .release-date {
     color: #888;
     font-size: 0.85rem;
-    text-align: center;
+    text-align: left;
+    padding-left: 0.5rem;
 }
 
 }
