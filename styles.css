@@ -25,12 +25,12 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: #0a0a0a;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
     overflow-y: auto;
 }
 
 .landing-header {
-    background: #0a0a0a;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     padding: 2rem 0;
     text-align: center;
     border-bottom: 1px solid #333;
@@ -39,15 +39,28 @@ body {
 .main-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffffff;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbowShift 3s ease-in-out infinite;
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
 }
 
 .subtitle {
     font-size: 1.5rem;
-    color: #ffffff;
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1, #96ceb4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 400;
+}
+
+@keyframes rainbowShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .landing-main {
@@ -59,68 +72,50 @@ body {
     width: 100%;
 }
 
-/* Genre Tags */
-.genre-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    justify-content: center;
-}
-
-.tag {
-    background: #2563eb;
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tag:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-}
-
 /* Synopsis Section */
 .synopsis-section {
-    background: #1a1a1a;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 16px;
     padding: 2rem;
     margin-bottom: 2rem;
     border: 1px solid #333;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .synopsis-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
 }
 
 .synopsis-content {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
 }
 
-.chapter-indicator {
-    background: #333;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.synopsis-image {
     flex-shrink: 0;
+    width: 200px;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    padding: 3px;
 }
 
-.chapter-number {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1.1rem;
+.jjk-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .synopsis-text {
@@ -128,33 +123,40 @@ body {
 }
 
 .synopsis-text p {
-    color: #cccccc;
-    line-height: 1.6;
+    color: #e0e0e0;
+    line-height: 1.7;
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .keywords-section {
-    border-top: 1px solid #333;
-    padding-top: 1rem;
+    border-top: 1px solid #444;
+    padding-top: 1.5rem;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+    margin: 0 -2rem -2rem -2rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+    border-radius: 0 0 16px 16px;
 }
 
 .keywords-label {
-    color: #888;
+    color: #4ecdc4;
     font-size: 0.9rem;
+    font-weight: 600;
     margin-right: 0.5rem;
 }
 
 .keywords {
-    color: #888;
+    color: #b0b0b0;
     font-size: 0.9rem;
 }
 
 /* Chapters Section */
 .chapters-section {
-    background: #1a1a1a;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 16px;
     padding: 2rem;
     border: 1px solid #333;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .chapters-header {
@@ -165,25 +167,30 @@ body {
 }
 
 .chapters-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    color: #ffffff;
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .expand-btn {
-    background: #2563eb;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     color: #ffffff;
     border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
 }
 
 .expand-btn:hover {
-    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
 }
 
 .search-container {
@@ -192,12 +199,14 @@ body {
 
 .search-container input {
     width: 100%;
-    background: #333;
-    border: 1px solid #555;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #333 0%, #444 100%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: 12px;
     padding: 0.75rem 1rem;
     color: #ffffff;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .search-container input::placeholder {
@@ -206,7 +215,8 @@ body {
 
 .search-container input:focus {
     outline: none;
-    border-color: #2563eb;
+    border: 2px solid #4ecdc4;
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
 }
 
 /* Chapter Highlights */
@@ -218,24 +228,50 @@ body {
 }
 
 .chapter-highlight {
-    padding: 1rem;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .first-chapter {
-    background: #333;
+    background: linear-gradient(135deg, #333 0%, #444 100%);
     color: #ffffff;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.first-chapter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    z-index: -1;
+    margin: -2px;
+    border-radius: 12px;
 }
 
 .new-chapter {
-    background: #2563eb;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     color: #ffffff;
+    box-shadow: 0 8px 24px rgba(255, 107, 107, 0.3);
 }
 
 .chapter-highlight:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+}
+
+.first-chapter:hover {
+    box-shadow: 0 12px 32px rgba(255, 107, 107, 0.4);
+}
+
+.new-chapter:hover {
+    box-shadow: 0 12px 32px rgba(78, 205, 196, 0.4);
 }
 
 .highlight-label {
@@ -243,14 +279,15 @@ body {
     font-size: 0.9rem;
     color: #888;
     margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .new-chapter .highlight-label {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .chapter-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
@@ -258,84 +295,65 @@ body {
 .chapter-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     max-height: 400px;
     overflow-y: auto;
 }
 
 .chapter-item {
-    background: #333;
-    border-radius: 8px;
-    padding: 1rem;
+    background: linear-gradient(135deg, #333 0%, #444 100%);
+    border-radius: 12px;
+    padding: 1.25rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    z-index: -1;
+    margin: -2px;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.chapter-item:hover::before {
+    opacity: 1;
 }
 
 .chapter-item:hover {
-    background: #444;
-    border-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .chapter-item h5 {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.25rem;
-}
-
-.chapter-item p {
-    color: #888;
-    font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
+.chapter-item p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
 .chapter-item .release-date {
-    color: #666;
-    font-size: 0.8rem;
-}
-
-.search-container {
-    margin-bottom: 3rem;
-    display: flex;
-    justify-content: center;
-}
-
-.search-box {
-    position: relative;
-    max-width: 500px;
-    width: 100%;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 1rem 3rem 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    color: white;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.search-box input:focus {
-    outline: none;
-    border-color: #4ecdc4;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
-}
-
-.search-box input::placeholder {
     color: #888;
+    font-size: 0.85rem;
 }
 
-.search-icon {
-    position: absolute;
-    right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    color: #888;
 }
 
 .chapters-section h2 {
