@@ -304,7 +304,7 @@ body {
 .chapter-item {
     background: linear-gradient(135deg, #333 0%, #444 100%);
     border-radius: 12px;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
@@ -312,6 +312,8 @@ body {
     overflow: hidden;
     min-width: 300px;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .chapter-item::before {
@@ -342,28 +344,12 @@ body {
     color: #ffffff;
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
     text-align: left;
     padding: 0 1rem;
+    margin: 0;
 }
 
-.chapter-item p {
-    color: #b0b0b0;
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-    text-align: left;
-    padding: 0 1rem;
-}
 
-.chapter-item .release-date {
-    color: #888;
-    font-size: 0.85rem;
-    text-align: left;
-    padding: 0 1rem;
-}
-
-}
 
 .chapters-section h2 {
     font-size: 2rem;

@@ -118,8 +118,6 @@ class MangaReader {
             chapterItem.className = 'chapter-item';
             chapterItem.innerHTML = `
                 <h5>${chapter.title}</h5>
-                <p>${chapter.description}</p>
-                <div class="release-date">Released: ${new Date(chapter.releaseDate).toLocaleDateString()}</div>
             `;
             
             chapterItem.addEventListener('click', () => {
