@@ -52,22 +52,66 @@
         <div class="landing-page" id="landingPage">
             <header class="landing-header">
                 <div class="header-content">
-                    <h1 class="title">Jujutsu Kaisen</h1>
-                    <p class="subtitle">Colored Manga Reader</p>
+                    <h1 class="main-title">JUJUTSU KAISEN MANGA ONLINE</h1>
+                    <h2 class="subtitle">Jujutsu Kaisen</h2>
                 </div>
             </header>
 
             <main class="landing-main">
-                <div class="search-container">
-                    <div class="search-box">
-                        <input type="text" id="chapterSearch" placeholder="Search chapters..." autocomplete="off">
-                        <span class="search-icon">🔍</span>
+                <!-- Genre Tags -->
+                <div class="genre-tags">
+                    <span class="tag">Action</span>
+                    <span class="tag">Comedy</span>
+                    <span class="tag">Drama</span>
+                    <span class="tag">Horror</span>
+                    <span class="tag">Mature</span>
+                    <span class="tag">Mystery</span>
+                    <span class="tag">School Life</span>
+                    <span class="tag">Shounen</span>
+                    <span class="tag">Supernatural</span>
+                </div>
+
+                <!-- Synopsis Section -->
+                <div class="synopsis-section">
+                    <h3 class="synopsis-title">Synopsis</h3>
+                    <div class="synopsis-content">
+                        <div class="chapter-indicator">
+                            <span class="chapter-number">1</span>
+                        </div>
+                        <div class="synopsis-text">
+                            <p>Jujutsu Kaisen is a Japanese manga series written and illustrated by Gege Akutami, serialized in Weekly Shonen Jump since March 5, 2018. The story follows Yuji Itadori, a high school student who becomes involved in the world of curses and jujutsu sorcerers after swallowing a cursed object.</p>
+                            <p>When Yuji's friends are attacked by curses, he swallows a finger belonging to the King of Curses, Sukuna, to save them. Now sharing his body with Sukuna, Yuji must work with jujutsu sorcerers to collect all of Sukuna's fingers and prevent him from regaining his full power.</p>
+                        </div>
+                    </div>
+                    <div class="keywords-section">
+                        <span class="keywords-label">Keywords:</span>
+                        <span class="keywords">read jujutsu kaisen colored, jujutsu kaisen english, jjk manga online, jujutsu kaisen full color</span>
                     </div>
                 </div>
 
+                <!-- Chapter List Section -->
                 <div class="chapters-section">
-                    <h2>Available Chapters</h2>
-                    <div class="chapters-grid" id="landingChaptersGrid">
+                    <div class="chapters-header">
+                        <h3 class="chapters-title">All Manga Chapters</h3>
+                        <button class="expand-btn" id="expandChapters">+</button>
+                    </div>
+                    
+                    <div class="search-container">
+                        <input type="text" id="chapterSearch" placeholder="search chapter number: example 12" autocomplete="off">
+                    </div>
+
+                    <div class="chapter-highlights">
+                        <div class="chapter-highlight first-chapter">
+                            <span class="highlight-label">First Chapter</span>
+                            <span class="chapter-title">Chapter 1</span>
+                        </div>
+                        <div class="chapter-highlight new-chapter">
+                            <span class="highlight-label">New Chapter</span>
+                            <span class="chapter-title">Chapter 15</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-list" id="landingChaptersGrid">
                         <!-- Chapters will be loaded here -->
                     </div>
                 </div>

@@ -54,6 +54,31 @@ class MangaReader {
         // Landing page events
         this.chapterSearch.addEventListener('input', (e) => this.filterChapters(e.target.value));
         
+        // Chapter highlights
+        const firstChapterBtn = document.querySelector('.first-chapter');
+        const newChapterBtn = document.querySelector('.new-chapter');
+        const expandBtn = document.getElementById('expandChapters');
+        
+        if (firstChapterBtn) {
+            firstChapterBtn.addEventListener('click', () => {
+                this.showReaderView();
+                this.loadChapter('chapter1');
+            });
+        }
+        
+        if (newChapterBtn) {
+            // Load the latest chapter (last in the array)
+            const latestChapter = MANGA_CONFIG.chapters[MANGA_CONFIG.chapters.length - 1];
+            newChapterBtn.addEventListener('click', () => {
+                this.showReaderView();
+                this.loadChapter(latestChapter.id);
+            });
+        }
+        
+        if (expandBtn) {
+            expandBtn.addEventListener('click', () => this.toggleChapterList());
+        }
+        
         // Menu events
         this.menuBtn.addEventListener('click', () => this.toggleMenu());
         this.closeMenuBtn.addEventListener('click', () => this.closeMenu());
@@ -89,21 +114,20 @@ class MangaReader {
         this.landingChaptersGrid.innerHTML = '';
         
         MANGA_CONFIG.chapters.forEach(chapter => {
-            const chapterCard = document.createElement('div');
-            chapterCard.className = 'chapter-card';
-            chapterCard.innerHTML = `
-                <div class="page-count">${chapter.pageCount} pages</div>
-                <h3>${chapter.title}</h3>
+            const chapterItem = document.createElement('div');
+            chapterItem.className = 'chapter-item';
+            chapterItem.innerHTML = `
+                <h5>${chapter.title}</h5>
                 <p>${chapter.description}</p>
                 <div class="release-date">Released: ${new Date(chapter.releaseDate).toLocaleDateString()}</div>
             `;
             
-            chapterCard.addEventListener('click', () => {
+            chapterItem.addEventListener('click', () => {
                 this.showReaderView();
                 this.loadChapter(chapter.id);
             });
             
-            this.landingChaptersGrid.appendChild(chapterCard);
+            this.landingChaptersGrid.appendChild(chapterItem);
         });
     }
     
@@ -137,19 +161,32 @@ class MangaReader {
     }
     
     filterChapters(searchTerm) {
-        const cards = this.landingChaptersGrid.querySelectorAll('.chapter-card');
+        const items = this.landingChaptersGrid.querySelectorAll('.chapter-item');
         
-        cards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const description = card.querySelector('p').textContent.toLowerCase();
+        items.forEach(item => {
+            const title = item.querySelector('h5').textContent.toLowerCase();
+            const description = item.querySelector('p').textContent.toLowerCase();
             const searchLower = searchTerm.toLowerCase();
             
             if (title.includes(searchLower) || description.includes(searchLower)) {
-                card.style.display = 'block';
+                item.style.display = 'block';
             } else {
-                card.style.display = 'none';
+                item.style.display = 'none';
             }
         });
+    }
+    
+    toggleChapterList() {
+        const chapterList = this.landingChaptersGrid;
+        const expandBtn = document.getElementById('expandChapters');
+        
+        if (chapterList.style.maxHeight === '400px' || !chapterList.style.maxHeight) {
+            chapterList.style.maxHeight = 'none';
+            expandBtn.textContent = '−';
+        } else {
+            chapterList.style.maxHeight = '400px';
+            expandBtn.textContent = '+';
+        }
     }
     
     showLandingPage() {
