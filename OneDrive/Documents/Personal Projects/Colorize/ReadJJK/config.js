@@ -286,9 +286,9 @@ const MANGA_CONFIG = {
     chapters: CHAPTER_PAGE_COUNTS.map((pageCount, index) => ({
         id: "chapter" + (index + 1),
         title: "Chapter " + (index + 1),
-        folder: "colorizedjjk/chapter " + (index + 1),
+        folder: "https://pub-64c9aaca3834482ab2167dbf51a3b33b.r2.dev/colorizedjjk/chapter " + (index + 1),
         pageCount,
-        coverImage: "01_colorized.png"
+        coverImage: "01_colorized.webp"
     })),
     
     // Reading settings
@@ -307,7 +307,7 @@ const MANGA_CONFIG = {
         pattern: "numbered",
         prefix: "", // e.g., "page_" for page_01_colorized.png
         suffix: "_colorized", // e.g., "_colorized" for 01_colorized.png
-        extension: ".png"
+        extension: ".webp"
     }
 };
 
