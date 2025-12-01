@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NENRH65BG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NENRH65BG');
+    </script>
+    
     <title>Read Jujutsu Kaisen Colored Manga Online - JJK Color Chapters</title>
     <meta name="description" content="Read Jujutsu Kaisen manga fully colorized online. All chapters updated weekly with HD quality and smooth reader experience.">
     <meta name="keywords" content="read jujutsu kaisen colored, jujutsu kaisen colored manga, jjk color manga, jujutsu kaisen full color, read jjk online, jujutsu kaisen manga chapters colored">
@@ -64,7 +74,7 @@
                     <h3 class="synopsis-title">Synopsis</h3>
                     <div class="synopsis-content">
                         <div class="synopsis-image">
-                            <img src="colorizedjjk/chapter 1/01_colorized.png" alt="Jujutsu Kaisen Cover" class="jjk-cover">
+                            <img src="https://pub-64c9aaca3834482ab2167dbf51a3b33b.r2.dev/colorizedjjk/chapter 1/01_colorized.webp" alt="Jujutsu Kaisen Cover" class="jjk-cover">
                         </div>
                         <div class="synopsis-text">
                             <p>Jujutsu Kaisen is a Japanese manga series written and illustrated by Gege Akutami, serialized in Weekly Shonen Jump since March 5, 2018. The story follows Yuji Itadori, a high school student who becomes involved in the world of curses and jujutsu sorcerers after swallowing a cursed object.</p>
@@ -74,6 +84,14 @@
                     <div class="keywords-section">
                         <span class="keywords-label">Keywords:</span>
                         <span class="keywords">read jujutsu kaisen colored, jujutsu kaisen english, jjk manga online, jujutsu kaisen full color</span>
+                    </div>
+                </div>
+
+                <!-- AI Colorization Notice -->
+                <div class="ai-notice-section">
+                    <h3 class="notice-title">AI-Enhanced Colorization Notice</h3>
+                    <div class="notice-content">
+                        <p>This version of Jujutsu Kaisen has been colorized using AI technology. While the coloring process aims to maintain artistic integrity, you may notice occasional inconsistencies in color application across panels. We're continuously working to improve the quality and appreciate your understanding.</p>
                     </div>
                 </div>
 
@@ -110,13 +128,6 @@
             <!-- Header -->
             <header class="header">
                 <div class="header-left">
-                    <button id="menuBtn" class="menu-btn" title="Menu">
-                        <span class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </button>
                     <div class="manga-title">
                         <span class="title">Jujutsu Kaisen</span>
                     </div>
@@ -135,10 +146,6 @@
                 </div>
                 
                 <div class="header-right">
-                    <button id="homeBtn" class="nav-btn" title="Home">
-                        <span class="icon">🏠</span>
-                        Home
-                    </button>
                     <button id="prevChapterBtn" class="nav-btn" disabled title="Previous Chapter">
                         <span class="icon">←</span>
                     </button>
@@ -161,37 +168,6 @@
             </main>
         </div>
 
-        <!-- Smooth Menu Panel -->
-        <div class="menu-panel" id="menuPanel">
-            <div class="menu-header">
-                <h3>Navigation</h3>
-                <button id="closeMenu" class="close-btn">&times;</button>
-            </div>
-            <div class="menu-content">
-                <div class="menu-section">
-                    <h4>Chapters</h4>
-                    <div class="chapter-list" id="menuChapterList">
-                        <!-- Chapters will be populated by JavaScript -->
-                    </div>
-                </div>
-                <div class="menu-section">
-                    <h4>Settings</h4>
-                    <div class="setting-group">
-                        <label for="autoFit">Auto-fit to screen</label>
-                        <input type="checkbox" id="autoFit" checked>
-                    </div>
-                    <div class="setting-group">
-                        <label for="pageGap">Page gap (px)</label>
-                        <input type="range" id="pageGap" min="0" max="20" value="10">
-                        <span id="gapValue">10px</span>
-                    </div>
-                    <div class="setting-group">
-                        <label for="backgroundColor">Background color</label>
-                        <input type="color" id="backgroundColor" value="#1a1a1a">
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Loading Overlay -->
         <div class="loading-overlay" id="loadingOverlay">
